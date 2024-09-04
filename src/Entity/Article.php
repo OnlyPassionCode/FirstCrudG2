@@ -11,7 +11,9 @@ class Article
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(options: [
+        "unsigned" => true
+    ])]
     private ?int $id = null;
 
     #[ORM\Column(length: 160)]
@@ -20,10 +22,14 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, options: [
+        "default" => "CURRENT_TIMESTAMP"
+    ])]
     private ?\DateTimeInterface $dateCreated = null;
 
-    #[ORM\Column]
+    #[ORM\Column(options: [
+        "default" => false
+    ])]
     private ?bool $published = null;
 
     public function getId(): ?int

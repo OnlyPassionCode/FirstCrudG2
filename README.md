@@ -78,3 +78,25 @@ Et le template
 
 Le premier fichier sera le "mapping/DTO" d'une donnée et le deuxième sera un Manager
 
+### Création du fichier de configuration
+
+On va copier le fichier `.env` en `.env.local` :
+
+    cp .env .env.local
+
+Ensuite on va modifier la clé secrète
+
+```env
+# .env.local
+
+APP_SECRET=VotreVraiCléSecrète
+```
+
+### Lien vers la database
+
+Pour le moment la database activée est en PostgreSQL, on va la commenter avec #
+
+```env
+
+
+```
